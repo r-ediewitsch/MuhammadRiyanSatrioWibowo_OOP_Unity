@@ -7,14 +7,18 @@ public class Player : MonoBehaviour
     public static Player Instance;
     PlayerMovement playerMovement;
     Animator animator;
+    public Weapon currentWeapon;
     
     void Awake()
     {
-        if(Instance != null && Instance != this) {
+        if(Instance != null && Instance != this) 
+        {
             Destroy(this);
         }
-        else {
+        else 
+        {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -23,10 +27,12 @@ public class Player : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
 
         GameObject engineEffect = GameObject.Find("EngineEffect");
-        if(engineEffect != null) {
+        if(engineEffect != null) 
+        {
             animator = engineEffect.GetComponent<Animator>();
         }
-        else {
+        else 
+        {
             Debug.LogError("EngineEffect not found!");
         }
     }
