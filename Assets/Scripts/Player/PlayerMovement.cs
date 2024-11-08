@@ -58,7 +58,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void MoveBound()
     {
-        // dikosongkan dulu
+        Vector3 pos = Camera.main.WorldToViewportPoint(rb.position);
+
+        pos.x = Mathf.Clamp(pos.x, 0.019f, 0.981f);
+        pos.y = Mathf.Clamp(pos.y, 0, 0.9375f);
+        //pos.x = Mathf.Clamp01(pos.x);
+        //pos.y = Mathf.Clamp01(pos.y);
+        
+        rb.position = Camera.main.ViewportToWorldPoint(pos);
     }
 
     public bool IsMoving()
