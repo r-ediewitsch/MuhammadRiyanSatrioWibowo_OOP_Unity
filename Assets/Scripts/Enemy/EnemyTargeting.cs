@@ -26,19 +26,19 @@ public class EnemyTargeting : Enemy
 
     private void SetRandomSpawnPosition()
     {
-        bool spawnFromLeft = Random.Range(0, 2) == 0; 
+        bool spawnOnLeft = Random.Range(0, 2) == 0;
 
-        float spawnY = Camera.main.ViewportToWorldPoint(new Vector2(0, 1)).y + 1;
+        float minY = Camera.main.ViewportToWorldPoint(new Vector2(0, 0)).y;
+        float maxY = Camera.main.ViewportToWorldPoint(new Vector2(0, 1)).y;
+        float randomY = Random.Range(minY, maxY);
 
-        if (spawnFromLeft)
+        if (spawnOnLeft)
         {
-            float randomY = Random.Range(Camera.main.ViewportToWorldPoint(new Vector2(0, 0)).y, Camera.main.ViewportToWorldPoint(new Vector2(0, 1)).y);
-            transform.position = new Vector2(Camera.main.ViewportToWorldPoint(new Vector2(0, 0)).x - 1, randomY); 
+            transform.position = new Vector2(Camera.main.ViewportToWorldPoint(new Vector2(0, 0)).x - 1, randomY);
         }
         else
         {
-            float randomY = Random.Range(Camera.main.ViewportToWorldPoint(new Vector2(0, 0)).y, Camera.main.ViewportToWorldPoint(new Vector2(0, 1)).y);
-            transform.position = new Vector2(Camera.main.ViewportToWorldPoint(new Vector2(1, 0)).x + 1, randomY); 
+            transform.position = new Vector2(Camera.main.ViewportToWorldPoint(new Vector2(1, 0)).x + 1, randomY);
         }
     }
 
