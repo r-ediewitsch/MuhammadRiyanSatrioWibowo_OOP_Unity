@@ -27,28 +27,28 @@ public class WeaponPickup : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-    if (other.CompareTag("Player"))
-    {
-        Player player = other.GetComponent<Player>();
-
-        if (player != null)
+        if (other.CompareTag("Player"))
         {
-            if (player.currentWeapon != null)
-            {
-                TurnVisual(false, player.currentWeapon);  
-                player.currentWeapon.transform.SetParent(null); 
-            } 
+            Player player = other.GetComponent<Player>();
 
-            if (weapon != null)
+            if (player != null)
             {
-                TurnVisual(true, weapon);  
-                weapon.transform.SetParent(player.transform);  
-                weapon.transform.localPosition = new Vector3(0, 0, 1);  
+                if (player.currentWeapon != null)
+                {
+                    TurnVisual(false, player.currentWeapon);  
+                    player.currentWeapon.transform.SetParent(null); 
+                } 
+
+                if (weapon != null)
+                {
+                    TurnVisual(true, weapon);  
+                    weapon.transform.SetParent(player.transform);  
+                    weapon.transform.localPosition = new Vector3(0, 0, 1);  
+                }
+
+                player.currentWeapon = weapon; 
             }
-
-            player.currentWeapon = weapon; 
         }
-    }
     }
 
     void TurnVisual(bool on)

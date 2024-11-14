@@ -62,8 +62,8 @@ public class PlayerMovement : MonoBehaviour
 
         pos.x = Mathf.Clamp(pos.x, 0.019f, 0.981f);
         pos.y = Mathf.Clamp(pos.y, 0, 0.9375f);
-        //pos.x = Mathf.Clamp01(pos.x);
-        //pos.y = Mathf.Clamp01(pos.y);
+        // pos.x = Mathf.Clamp01(pos.x);
+        // pos.y = Mathf.Clamp01(pos.y);
         
         rb.position = Camera.main.ViewportToWorldPoint(pos);
     }
