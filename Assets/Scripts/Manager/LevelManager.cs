@@ -17,10 +17,6 @@ public class LevelManager : MonoBehaviour
                 animator = transitionImage.GetComponent<Animator>();
                 DontDestroyOnLoad(animator.gameObject);
             }
-            else
-            {
-                Debug.LogError("SceneTransition image with Animator not found!");
-            }
         }
     }
 

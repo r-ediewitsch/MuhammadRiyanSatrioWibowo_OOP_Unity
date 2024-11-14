@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
         else 
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -31,10 +31,6 @@ public class Player : MonoBehaviour
         {
             animator = engineEffect.GetComponent<Animator>();
         }
-        else 
-        {
-            Debug.LogError("EngineEffect not found!");
-        }
     }
 
     void FixedUpdate()
@@ -45,5 +41,10 @@ public class Player : MonoBehaviour
     void LateUpdate()
     {
         animator.SetBool("IsMoving", playerMovement.IsMoving());
+    }
+
+    void OnDestroy()
+    {
+        Debug.Log("Player Destroyed: " + this.gameObject.name);
     }
 }
