@@ -9,13 +9,13 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private float waveInterval = 5f;
     public int waveNumber = 1;
     public int totalEnemies = 0;
+    private int totalKills;
 
     [SerializeField] private bool isWaveActive = false;
 
     private void Start()
     {
-        // if(timer >= waveInterval)
-        // StartWave();
+        // Nothing happened
     }
 
     private void Update()
@@ -44,10 +44,13 @@ public class CombatManager : MonoBehaviour
 
         foreach (var spawner in enemySpawners)
         {
-            // spawner.spawnCount = spawner.defaultSpawnCount;
-            spawner.isSpawning = true;
-            totalEnemies += 1;
-            StartCoroutine(TrackEnemiesFromSpawner(spawner));
+            if(spawner.spawnedEnemy.level == waveNumber - 1)
+            {
+                spawner.spawnCount = spawner.defaultSpawnCount;
+                spawner.isSpawning = true;
+                totalEnemies += spawner.spawnCount;
+                StartCoroutine(TrackEnemiesFromSpawner(spawner));
+            }
         }
     }
 
@@ -67,10 +70,11 @@ public class CombatManager : MonoBehaviour
     public void RegisterEnemyDeath()
     {
         totalEnemies--;
+        totalKills++;
     }
 
     public int GetTotalKills()
     {
-        return waveNumber * 10;
+        return totalKills;
     }
 }

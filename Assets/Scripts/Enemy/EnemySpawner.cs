@@ -22,52 +22,43 @@ public class EnemySpawner : MonoBehaviour
     public CombatManager combatManager;
 
     public bool isSpawning = false;
+    private bool spawningRunning = false;
 
     private void Start()
     {
         spawnCount = defaultSpawnCount;
-        if (isSpawning)
+    }
+
+    private void Update()
+    {
+        totalKill = combatManager.GetTotalKills();
+        
+        if (isSpawning && !spawningRunning)
         {
             StartCoroutine(SpawnEnemies());
         }
     }
 
-    private void Update()
-    {
-        // totalKill = combatManager.GetTotalKills(); 
-
-        // if (totalKill >= minimumKillsToIncreaseSpawnCount)
-        // {
-        //     IncreaseSpawnCount();
-        //     totalKillWave = 0;
-        // }
-        
-        // if (totalKillWave >= multiplierIncreaseCount)
-        // {
-        //     IncreaseMultiplier();
-        //     totalKillWave = 0;
-        // }
-    }
-
     private IEnumerator SpawnEnemies()
     {
+        spawningRunning = true;
+        
         while (isSpawning && spawnCount > 0)
         {  
             yield return new WaitForSeconds(spawnInterval);
 
-            if(spawnedEnemy.level == combatManager.waveNumber - 1)
-            {
                 SpawnEnemy();
                 spawnCount--;
-            }
         }
+
+        spawningRunning = false;
         isSpawning = false;
     }
 
     private void SpawnEnemy()
     {
-        Instantiate(spawnedEnemy);
-        combatManager.totalEnemies++;
+        Enemy enemyInstance = Instantiate(spawnedEnemy);
+        enemyInstance.combatManager = combatManager;
     }
 
     private void IncreaseSpawnCount()

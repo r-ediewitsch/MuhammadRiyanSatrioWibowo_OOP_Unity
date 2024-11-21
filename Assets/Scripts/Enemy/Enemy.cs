@@ -8,9 +8,9 @@ public class Enemy : MonoBehaviour
     [Header("Enemy Properties")]
     public int level = 1;
 
-    public CombatManager combatManager;
     private Transform playerTransform;
     private Rigidbody2D rb;
+    public CombatManager combatManager;
 
     void Awake()
     {
@@ -25,7 +25,10 @@ public class Enemy : MonoBehaviour
 
     void OnDestroy()
     {
-        combatManager.RegisterEnemyDeath();
+        if (combatManager != null)
+        {
+            combatManager.RegisterEnemyDeath();
+        }
     }
 }
 
