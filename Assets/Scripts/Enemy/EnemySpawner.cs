@@ -30,9 +30,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private void Update()
-    {
-        totalKill = combatManager.GetTotalKills();
-        
+    {   
         if (isSpawning && !spawningRunning)
         {
             StartCoroutine(SpawnEnemies());
@@ -46,9 +44,8 @@ public class EnemySpawner : MonoBehaviour
         while (isSpawning && spawnCount > 0)
         {  
             yield return new WaitForSeconds(spawnInterval);
-
-                SpawnEnemy();
-                spawnCount--;
+            SpawnEnemy();
+            spawnCount--;
         }
 
         spawningRunning = false;
@@ -59,16 +56,19 @@ public class EnemySpawner : MonoBehaviour
     {
         Enemy enemyInstance = Instantiate(spawnedEnemy);
         enemyInstance.combatManager = combatManager;
+        enemyInstance.spawner = this;
     }
 
-    private void IncreaseSpawnCount()
+    public void RegisterEnemyDeath()
     {
-        defaultSpawnCount++;
-        spawnCount = defaultSpawnCount;
-    }
+        totalKill++;
+        totalKillWave++;
 
-    private void IncreaseMultiplier()
-    {
-        spawnCountMultiplier++;
+        if(totalKillWave >= minimumKillsToIncreaseSpawnCount)
+        {
+            totalKillWave = 0;
+            defaultSpawnCount += spawnCountMultiplier*multiplierIncreaseCount;
+            multiplierIncreaseCount++;
+        }
     }
 }

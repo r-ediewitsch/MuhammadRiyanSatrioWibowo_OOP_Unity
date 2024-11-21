@@ -70,11 +70,5 @@ public class CombatManager : MonoBehaviour
     public void RegisterEnemyDeath()
     {
         totalEnemies--;
-        totalKills++;
-    }
-
-    public int GetTotalKills()
-    {
-        return totalKills;
     }
 }

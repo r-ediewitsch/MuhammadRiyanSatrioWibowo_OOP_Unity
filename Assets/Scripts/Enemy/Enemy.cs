@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     private Transform playerTransform;
     private Rigidbody2D rb;
     public CombatManager combatManager;
+    public EnemySpawner spawner;
 
     void Awake()
     {
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
         if (combatManager != null)
         {
             combatManager.RegisterEnemyDeath();
+            spawner.RegisterEnemyDeath();
         }
     }
 }

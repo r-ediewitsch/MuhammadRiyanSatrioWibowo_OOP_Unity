@@ -160,6 +160,7 @@ MonoBehaviour:
   waveInterval: 5
   waveNumber: 1
   totalEnemies: 0
+  isWaveActive: 0
 --- !u!4 &234197898
 Transform:
   m_ObjectHideFlags: 0
@@ -251,7 +252,7 @@ PrefabInstance:
       objectReference: {fileID: 234197897}
     - target: {fileID: 5875434627804575643, guid: 24d2b0cef96a9654c8145d2c10000b8f, type: 3}
       propertyPath: minimumKillsToIncreaseSpawnCount
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8632273604591848278, guid: 24d2b0cef96a9654c8145d2c10000b8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -513,7 +514,7 @@ PrefabInstance:
       objectReference: {fileID: 234197897}
     - target: {fileID: 6095724372347395061, guid: 917609c0b63bab14ea76f61f37cad5c6, type: 3}
       propertyPath: minimumKillsToIncreaseSpawnCount
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
