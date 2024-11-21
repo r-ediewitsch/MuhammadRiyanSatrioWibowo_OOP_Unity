@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,6 +10,8 @@ public class Enemy : MonoBehaviour
 
     private Transform playerTransform;
     private Rigidbody2D rb;
+    public CombatManager combatManager;
+    public EnemySpawner spawner;
 
     void Awake()
     {
@@ -19,6 +22,15 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         transform.rotation = Quaternion.Euler(0, 0, 180);
+    }
+
+    void OnDestroy()
+    {
+        if (combatManager != null)
+        {
+            combatManager.RegisterEnemyDeath();
+            spawner.RegisterEnemyDeath();
+        }
     }
 }
 
