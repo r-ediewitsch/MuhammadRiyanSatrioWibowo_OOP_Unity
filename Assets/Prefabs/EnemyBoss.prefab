@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd86239ff39046488dfc2d1231660f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 3
   speed: 2
   bulletPrefab: {fileID: 5588099992948772210, guid: 95c711a9ca4d5854bb848a21f54d2551, type: 3}
   bulletSpawnPoint: {fileID: 9108790189139197407}
