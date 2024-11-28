@@ -156,6 +156,7 @@ MonoBehaviour:
   - {fileID: 1396684824}
   - {fileID: 849253767950891739}
   - {fileID: 8150610443394098395}
+  uiDocument: {fileID: 742451193}
   timer: 0
   waveInterval: 5
   waveNumber: 1
@@ -230,6 +231,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &742451192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 742451194}
+  - component: {fileID: 742451193}
+  - component: {fileID: 742451195}
+  m_Layer: 5
+  m_Name: MainUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &742451193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742451192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: bcae85f6834f8694d9d68d453c3a3373, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: bd9f1c122e52c594981ac62cd6fba1ca, type: 3}
+  m_SortingOrder: 0
+--- !u!4 &742451194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742451192}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742451195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742451192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bcecae362eff0249a9359224cd4400c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiDocument: {fileID: 742451193}
+  player: {fileID: 0}
+  combatManager: {fileID: 234197897}
+  point: 0
 --- !u!1001 &1396684822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -250,6 +316,10 @@ PrefabInstance:
       propertyPath: combatManager
       value: 
       objectReference: {fileID: 234197897}
+    - target: {fileID: 5875434627804575643, guid: 24d2b0cef96a9654c8145d2c10000b8f, type: 3}
+      propertyPath: defaultSpawnCount
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5875434627804575643, guid: 24d2b0cef96a9654c8145d2c10000b8f, type: 3}
       propertyPath: minimumKillsToIncreaseSpawnCount
       value: 3
@@ -513,6 +583,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 234197897}
     - target: {fileID: 6095724372347395061, guid: 917609c0b63bab14ea76f61f37cad5c6, type: 3}
+      propertyPath: defaultSpawnCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095724372347395061, guid: 917609c0b63bab14ea76f61f37cad5c6, type: 3}
       propertyPath: minimumKillsToIncreaseSpawnCount
       value: 3
       objectReference: {fileID: 0}
@@ -651,8 +725,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 234197897}
     - target: {fileID: 2181633047880385615, guid: 3113ed4824337ac4b920f70de98a6603, type: 3}
+      propertyPath: defaultSpawnCount
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181633047880385615, guid: 3113ed4824337ac4b920f70de98a6603, type: 3}
       propertyPath: minimumKillsToIncreaseSpawnCount
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8552185904401447013, guid: 3113ed4824337ac4b920f70de98a6603, type: 3}
       propertyPath: m_Name
@@ -741,7 +819,7 @@ PrefabInstance:
       objectReference: {fileID: 234197897}
     - target: {fileID: 3144560354492302760, guid: a8088d72fbb8a7640aea98451c38ebfa, type: 3}
       propertyPath: defaultSpawnCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -772,3 +850,4 @@ SceneRoots:
   - {fileID: 345685560425369978}
   - {fileID: 618360145}
   - {fileID: 234197898}
+  - {fileID: 742451194}

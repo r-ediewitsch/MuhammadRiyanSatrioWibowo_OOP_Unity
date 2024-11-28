@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthComponent : MonoBehaviour
 {
     [SerializeField] float maxHealth = 10f;
-    float health {set; get;}
+    public float health {private set; get;}
 
     void Awake()
     {
@@ -15,6 +15,7 @@ public class HealthComponent : MonoBehaviour
     public void Subtract(float damage)
     {
         health -= damage;
+
         if(health <= 0)
         {
             Destroy(gameObject);
