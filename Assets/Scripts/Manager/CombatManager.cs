@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CombatManager : MonoBehaviour
 {
     public EnemySpawner[] enemySpawners;
+    public UIDocument uiDocument;
     public float timer = 0;
     [SerializeField] private float waveInterval = 5f;
     public int waveNumber = 1;
     public int totalEnemies = 0;
-    private int totalKills;
 
     [SerializeField] private bool isWaveActive = false;
 
@@ -70,5 +71,6 @@ public class CombatManager : MonoBehaviour
     public void RegisterEnemyDeath()
     {
         totalEnemies--;
+        uiDocument.GetComponent<MainUI>().point += waveNumber - 1;
     }
 }
