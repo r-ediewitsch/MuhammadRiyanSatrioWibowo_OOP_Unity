@@ -726,11 +726,11 @@ PrefabInstance:
       objectReference: {fileID: 234197897}
     - target: {fileID: 2181633047880385615, guid: 3113ed4824337ac4b920f70de98a6603, type: 3}
       propertyPath: defaultSpawnCount
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2181633047880385615, guid: 3113ed4824337ac4b920f70de98a6603, type: 3}
       propertyPath: minimumKillsToIncreaseSpawnCount
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8552185904401447013, guid: 3113ed4824337ac4b920f70de98a6603, type: 3}
       propertyPath: m_Name
@@ -819,7 +819,7 @@ PrefabInstance:
       objectReference: {fileID: 234197897}
     - target: {fileID: 3144560354492302760, guid: a8088d72fbb8a7640aea98451c38ebfa, type: 3}
       propertyPath: defaultSpawnCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
